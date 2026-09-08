@@ -14,3 +14,13 @@ Main files:
 - music/ — original demo recordings
 
 When licensed Bengali recordings are ready, update station-data.js and the audio files only.
+
+SONG ADDITION WORKFLOW
+======================
+1. Put the audio file in songs/
+2. Add one track object in station-data.js with title, artist, file and freq.
+3. git add .
+4. git commit -m "Add new track"
+5. git push
+
+Do not edit index.html, script.js or sw.js for ordinary song additions.
