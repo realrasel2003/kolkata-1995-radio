@@ -1,0 +1,13 @@
+KOLKATA 1995 RADIO — CONTENT GUIDE
+
+The site is intentionally separated into interface and content.
+
+To add a track, edit station-data.js:
+{ title, artist, file, freq }
+
+Place the audio file inside /music/ and point file to it.
+
+IMPORTANT:
+Only add recordings after obtaining the appropriate rights for website/non-interactive streaming. A YouTube, Spotify or other platform link is not automatically a streaming licence.
+
+Recommended audio format for the final station: MP3 or AAC, with a reasonable bitrate for web delivery. Keep original WAV demo files only for development if desired.

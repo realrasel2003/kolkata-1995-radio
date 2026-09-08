@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kolkata 1995 Radio — Neighbourhood Radio</title>
+<meta name="description" content="Kolkata 1995 Radio — a small digital radio memory of Calcutta evenings, cassette shops, tram bells and para adda.">
+<meta name="theme-color" content="#1b130e">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Rasel Islam">
+<meta name="application-name" content="Kolkata 1995 Radio">
+<meta property="og:title" content="Kolkata 1995 Radio">
+<meta property="og:description" content="A digital radio memory of Calcutta, 1995.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="desktop.png">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="scene">
+  <picture class="bg">
+    <source media="(max-width:700px)" srcset="mobile.png">
+    <img src="desktop.png" alt="A nostalgic Kolkata street scene inspired by 1995">
+  </picture>
+  <div class="shade"></div>
+  <div class="grain"></div>
+
+  <button class="brand" id="brandButton" aria-label="Open station information" type="button">
+    <div class="antenna"></div>
+    <div class="radio-mark">
+      <div class="speaker-lines"></div>
+      <div class="dial"></div>
+    </div>
+    <div class="brand-text">
+      <strong>KOLKATA</strong>
+      <span>1995</span>
+      <small>NEIGHBOURHOOD RADIO</small>
+    </div>
+  </button>
+
+  <section class="radio" id="player">
+    <div class="radio-top">
+      <span>MODEL KR-95</span>
+      <span>FM • AM • SW</span>
+      <span class="onair"><i></i> ON AIR</span>
+    </div>
+
+    <div class="radio-face">
+      <div class="speaker-grille">
+        <div class="speaker-badge">KR-95</div>
+        <div class="grille-title">KOLKATA RADIO</div>
+        <div class="grille-lines"></div>
+        <div class="grille-badge">1995</div>
+      </div>
+
+      <div class="display-column">
+        <div class="preset-row"><span>PRESETS</span><button class="preset active" data-track="0">1</button><button class="preset" data-track="1">2</button><button class="preset" data-track="2">3</button><button class="preset disabled" disabled>4</button><button class="preset disabled" disabled>5</button><button class="preset disabled" disabled>6</button></div>
+        <div class="frequency-display">
+          <div class="frequency"><span id="freqMain">98</span><b id="freqDec">.5</b> <em>FM</em></div>
+          <div class="needle"><i></i></div>
+          <div class="ticks"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="song-display">
+          <small>NOW PLAYING</small>
+          <strong id="title">Kolkata Evening</strong>
+          <span id="artist">Original Demo • Kolkata 1995 Radio</span>
+        </div>
+
+        <div class="transport">
+          <button id="prev" aria-label="Previous">◀◀</button>
+          <button id="play" class="play" aria-label="Play">▶</button>
+          <button id="next" aria-label="Next">▶▶</button>
+        </div>
+
+        <div class="trackline">
+          <span id="cur">0:00</span>
+          <input id="seek" type="range" min="0" max="100" value="0">
+          <span id="dur">0:12</span>
+        </div>
+      </div>
+
+      <div class="right-controls">
+        <div class="knob-wrap">
+          <span>VOLUME</span>
+          <button class="knob volume-knob" id="volumeKnob" aria-label="Volume control"></button>
+        </div>
+        <div class="knob-wrap">
+          <span>TUNING</span>
+          <button class="knob tuning-knob" id="tuningKnob" aria-label="Tuning"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="radio-bottom">
+      <div class="vu">
+        <span>VU</span>
+        <div class="meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="cassette">
+        <div class="cassette-label">KOLKATA<br><b>EVENING MIX</b></div>
+        <div class="cassette-window"><span>A</span><i></i><span>B</span></div>
+        <div class="reel reel-a"></div>
+        <div class="reel reel-b"></div>
+      </div>
+      <span>STEREO • MADE IN CALCUTTA</span>
+    </div>
+
+    <audio id="audio" src="kolkata-demo.wav" preload="metadata"></audio>
+  </section>
+
+  <div class="station-overlay" id="stationOverlay" aria-hidden="true">
+    <div class="station-card" role="dialog" aria-modal="true" aria-labelledby="stationTitle">
+      <button class="station-close" id="stationClose" aria-label="Close">×</button>
+      <small>ABOUT THE STATION</small>
+      <h2 id="stationTitle">Kolkata 1995 Radio</h2>
+      <p>A little corner of Calcutta, tuned to the evenings of 1995 — cassette shops, tram bells, para adda and songs drifting through open windows.</p>
+      <div class="station-meta"><span>BROADCAST</span><b>CALCUTTA • 1995</b></div>
+      <div class="station-meta"><span>FORMAT</span><b>FM • AMBIENT • RETRO</b></div>
+      <div class="station-note">This first build uses original demo recordings. Licensed Bengali recordings can be added later.</div>
+    </div>
+  </div>
+
+  <button class="menu-button" id="menuButton" type="button" aria-label="Open station menu" aria-controls="menuOverlay" aria-expanded="false">MENU</button>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-card" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+      <button class="menu-close" id="menuClose" aria-label="Close">×</button>
+      <small>STATION MENU</small>
+      <h2 id="menuTitle">Kolkata 1995 Radio</h2>
+      <nav class="station-nav" aria-label="Station sections">
+        <button class="nav-item active" data-section="radio">01 <span>RADIO</span><b>LIVE</b></button>
+        <button class="nav-item" data-section="archive">02 <span>ARCHIVE</span><b>3 TRACKS</b></button>
+        <button class="nav-item" data-section="about">03 <span>ABOUT</span><b>THE STATION</b></button>
+        <button class="nav-item" data-section="developer">04 <span>DEVELOPER</span><b>CONTACT</b></button>
+        <button class="nav-item" data-section="share">05 <span>SHARE</span><b>STATION</b></button>
+      </nav>
+      <div class="menu-content" id="menuContent"></div>
+    </div>
+  </div>
+</main>
+<script src="station-data.js"></script>
+<script src="script.js"></script>
+<div class="loading-screen" id="loadingScreen" aria-label="Loading Kolkata 1995 Radio"><div class="loading-mark"></div><span>TUNING IN...</span></div>
+<div class="install-toast" id="installToast" aria-live="polite">
+  <span>KEEP KOLKATA 1995 RADIO</span>
+  <button id="installButton" type="button">INSTALL</button>
+  <button id="installDismiss" type="button" aria-label="Dismiss">×</button>
+</div>
+<script>
+if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+</script>
+</body>
+</html>
